@@ -14,19 +14,21 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
-    def require_logged_in
-        unless current_user
-            render json: { base: ['Invalid username or password'] }, status: 401
-        end
-    end
-
     def login(user)
-        session[:session_token] = user.reset_session_token!
+        user.reset_session_token!
+        session[:session_token] = user.session_token
+        @current_user = user
     end
-
+    
     def logout
         current_user.reset_session_token!
         @current_user = nil
         session[:session_token] = nil
+    end
+
+    def require_logged_in
+        unless current_user
+            render json: { base: ['Invalid username or password'] }, status: 401
+        end
     end
 end
