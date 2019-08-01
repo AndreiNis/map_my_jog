@@ -19,7 +19,7 @@ const App = () => {
     return (
         <div>
             <header>
-                <h1>Map My Jog</h1>
+                
             </header>
             <WelcomeContainer />
             <Switch>

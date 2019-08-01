@@ -8,8 +8,8 @@ const msp = ({errors}) => {
     debugger
     return {
         errors: errors,
-        formType: 'login',
-        navLink: <Link to="/signup">Sign up instead</Link>,
+        formType: 'Login',
+        navLink: <Link to="/signup">SIGN UP</Link>,
     };
 };
 

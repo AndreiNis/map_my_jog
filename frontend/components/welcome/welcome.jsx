@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const Welcome = ({ currentUser, logout }) => {
     const sessionLinks = () => (
         <nav className="login-signup">
-            <Link to="/login">Log In</Link>
-        &nbsp;or&nbsp;
-            <Link to="/signup">Sign Up</Link>
+            <Link className="loginButton" to="/login">Log In</Link>
+            
+            <Link className="signupButton" to="/signup">Sign Up</Link>
         </nav>
     );
     const personalWelcome = () => (
         <hgroup className="header-group">
-            <h2 className="header-name">Welcome, {currentUser.username}!</h2>
+            <h2 className="header-name">Welcome, {currentUser.first_name}!</h2>
             <button className="header-button" onClick={logout}>Log Out</button>
         </hgroup>
     );
