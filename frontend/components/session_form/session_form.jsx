@@ -33,23 +33,28 @@ class SessionForm extends React.Component {
     }
 
     renderErrors() {
+        
+        const errors = this.props.errors.map((error, i) => {
+            return (
+                <li key={`error-${i}`}>
+                    {error}
+                </li>
+            )
+            })
+        
         return(
             <ul>
-                {this.props.errors.map((error, i) => {
-                    <li key={`error-${i}`}>
-                        {error}
-                    </li>
-                })}
+               {errors}
             </ul>
         )
     }
 
     render() {
-        console.log(this.state);
-
+        
         const name = this.props.formType === "Sign up" ? (
             <div>
                 <label>
+                
                 <input type="text"
                         placeholder="First name"
                         value={this.state.first_name}
@@ -66,7 +71,6 @@ class SessionForm extends React.Component {
                 </label>
             </div>
         ) : ""  
-        // style={ fill: this.state.checked === "Female" ? "rgb(92, 216, 92)" : "rgb(158, 152, 152)"}
         const checkMark = (
             <span className="check-mark">
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" /></svg>
@@ -158,7 +162,7 @@ class SessionForm extends React.Component {
                 </label>
             </div>
         ) : ""
- 
+        
         return (
         <div className="login-form-container">
             <form onSubmit={this.handleSubmit} className="login-form-box">
