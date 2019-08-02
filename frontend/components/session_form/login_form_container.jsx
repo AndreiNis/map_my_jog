@@ -5,7 +5,7 @@ import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const msp = ({errors}) => {
-    debugger
+    
     return {
         errors: errors,
         formType: 'Login',

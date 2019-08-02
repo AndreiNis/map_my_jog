@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        user.dob = new Date(user.year, user.month, user.day)
+        user.dob = new Date(`${user.month} ${user.day}, ${user.year}`)
         this.props.processForm(user);
     }
 
@@ -66,6 +66,12 @@ class SessionForm extends React.Component {
                 </label>
             </div>
         ) : ""  
+        // style={ fill: this.state.checked === "Female" ? "rgb(92, 216, 92)" : "rgb(158, 152, 152)"}
+        const checkMark = (
+            <span className="check-mark">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" /></svg>
+            </span>
+        )
         const gender = this.props.formType === "Sign up" ? (
 
             <div id="gender-box">
@@ -75,6 +81,7 @@ class SessionForm extends React.Component {
                     value='Male'
                     onChange={this.update('gender')}
                     className="gender-input" />
+                    {this.state.gender === "Male" ? checkMark : ""}
                 </label>
                 
                 <label id="female">Female
@@ -83,6 +90,7 @@ class SessionForm extends React.Component {
                     value='Female'
                     onChange={this.update('gender')}
                     className="gender-input" />
+                    {this.state.gender === "Female" ? checkMark : ""}
                 </label>
             </div>
         ) : ""
