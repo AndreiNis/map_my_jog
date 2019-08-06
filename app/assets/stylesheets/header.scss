@@ -54,9 +54,23 @@
     flex-direction: column;
 }
 
+.sneaker-add {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 700px;
+    bottom: 850px;
+    background: transparent;
+}
+
 
 .logo-link {
     padding-top:13px;
     background: #F0F0F0;
     // 
+}
+
+.jackie {
+    position: relative;
+    bottom: 755px;
 }

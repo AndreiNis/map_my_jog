@@ -32,11 +32,15 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     }
 
+    componentWillUnmount(){
+        this.props.clearErrors();
+    };
+
     renderErrors() {
         
         const errors = this.props.errors.map((error, i) => {
             return (
-                <li className={`error-${i}`} key={`error-${i}`}>
+                <li className={`error-${i}`} key={`error-${ i}`}>
                     {error}
                 </li>
             )
@@ -48,7 +52,7 @@ class SessionForm extends React.Component {
             </ul>
         )
     }
-        
+
     render() {
         
         const name = this.props.formType === "Sign up" ? (

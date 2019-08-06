@@ -5,7 +5,13 @@ import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const msp = ({errors}) => {
-    
+    // const obj = {}
+    // errors.forEach(e => {
+    //     let tmp = e.split("or");
+    //     obj[tmp[0]] = e;
+    // })
+    // console.log(obj);
+    // console.log(errors);
     return {
         errors: errors,
         formType: 'Login',
