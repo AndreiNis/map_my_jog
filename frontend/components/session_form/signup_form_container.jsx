@@ -10,10 +10,10 @@ const msp = ({ errors }) => {
         let tmp = e.split(" ");
         obj[tmp[0]] = e;
     })
-    console.log(obj);
-    console.log(errors);
+    // console.log(obj);
+    // console.log(errors);
     return {
-        errors: errors,
+        errors: obj,
         formType: 'Sign up',
         navLink: <Link to="/login">LOG IN</Link>,
     };

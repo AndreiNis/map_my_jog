@@ -32,16 +32,17 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     }
 
-    componentWillUnmount(){
-        this.props.clearErrors();
-    };
-
+    // componentWillUnmount(){
+    //     this.props.clearErrors();
+    // };
+    // className = {`error-${i}`}
     renderErrors() {
-        
-        const errors = this.props.errors.map((error, i) => {
+        const errorsArray = Object.values(this.props.errors);
+        // console.log(errorsArray);
+        const errors = errorsArray.map((value, i) => {
             return (
-                <li className={`error-${i}`} key={`error-${ i}`}>
-                    {error}
+                <li  key={i}>
+                    {value}
                 </li>
             )
             })
@@ -54,24 +55,39 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        // debugger
+        const { errors } = this.props;
+        const emailClass = errors["Email"] ? "login-input login-errors" : "login-input";
+        const passwordClass = errors["Password"] ? "login-input login-errors" : "login-input";
+        const firstClass = errors["First"] ? "signin-input signin-errors" : "signin-input";
+        const lastClass = errors["Last"] ? "signin-input signin-errors" : "signin-input";
+        const genderClass = errors["Gender"] ? "gender-input gender-errors" : "gender-input";
+        const maleClass = errors["Gender"] ? "male male-errors" : "male";
+        const femaleClass = errors["Gender"] ? "female female-errors" : "female";
+        const dobClass = errors["Dob"] ? "date-input date-errors" : "date-input";
         
         const name = this.props.formType === "Sign up" ? (
             <div>
                 <label>
-                
-                <input type="text"
+                    <span className="first-span">
+                        {errors["First"]}
+                    </span>
+                    <input type="text"
                         placeholder="First name"
                         value={this.state.first_name}
                         onChange={this.update('first_name')}
-                        className="signin-input" />
-                </label>
-                <br/>
-                <label>
-                <input type="text"
+                        className={firstClass} />
+                    </label>
+                    <br/>
+                    <label>
+                    <span className="last-span">
+                        {errors["Last"]}
+                    </span>
+                    <input type="text"
                         placeholder="Last name"
                         value={this.state.last_name}
                         onChange={this.update('last_name')}
-                        className="signin-input" />
+                        className={lastClass} />
                 </label>
             </div>
         ) : ""  
@@ -83,22 +99,28 @@ class SessionForm extends React.Component {
         const gender = this.props.formType === "Sign up" ? (
 
             <div id="gender-box">
-                <label id="male">Male
-                <input type="radio"
-                    checked = {this.state.gender === "Male"}
-                    value='Male'
-                    onChange={this.update('gender')}
-                    className="gender-input" />
-                    {this.state.gender === "Male" ? checkMark : ""}
-                </label>
-                
-                <label id="female">Female
-                <input type="radio"
-                    checked={this.state.gender === "Female"}
-                    value='Female'
-                    onChange={this.update('gender')}
-                    className="gender-input" />
-                    {this.state.gender === "Female" ? checkMark : ""}
+                <span className="gender-span">
+                    {errors["Gender"]}
+                </span>
+                <label className="gender-label">
+                    <label className={maleClass}>Male
+                    
+                    <input type="radio"
+                        checked = {this.state.gender === "Male"}
+                        value='Male'
+                        onChange={this.update('gender')}
+                        className={genderClass} />
+                        {this.state.gender === "Male" ? checkMark : ""}
+                    </label>
+                    
+                    <label className={femaleClass}>Female
+                    <input type="radio"
+                        checked={this.state.gender === "Female"}
+                        value='Female'
+                        onChange={this.update('gender')}
+                        className={genderClass} />
+                        {this.state.gender === "Female" ? checkMark : ""}
+                    </label>
                 </label>
             </div>
         ) : ""
@@ -137,32 +159,36 @@ class SessionForm extends React.Component {
 
         const date = this.props.formType === "Sign up" ? (
             <div>
-                <label id="day">
-                
+                <span className="dob-span">
+                    {errors["Dob"]}
+                </span>
+                <label className="dob-label">
+                    <label id="day">
+                        <select 
+                            value={this.state.day}
+                            onChange={this.update('day')}
+                            className={dobClass} > 
+                            {mapDays}
+                        </select>
+                    </label>
+
+                    <label id="month">
                     <select 
-                        value={this.state.day}
-                        onChange={this.update('day')}
-                        className="date-input" > 
-                        {mapDays}
+                        value={this.state.month}
+                        onChange={this.update('month')}
+                        className={dobClass}>
+                        {mapMonths}
                     </select>
-                </label>
+                    </label>
 
-                <label id="month">
-                <select 
-                    value={this.state.month}
-                    onChange={this.update('month')}
-                    className="date-input">
-                    {mapMonths}
-                </select>
-                </label>
-
-                <label id="year">
-                <select 
-                    value={this.state.year}
-                    onChange={this.update('year')}
-                    className="date-input">
-                    {mapYears}
-                </select>    
+                    <label id="year">
+                    <select 
+                        value={this.state.year}
+                        onChange={this.update('year')}
+                        className={dobClass}>
+                        {mapYears}
+                    </select>    
+                    </label>
                 </label>
             </div>
         ) : ""
@@ -173,24 +199,33 @@ class SessionForm extends React.Component {
                 
                 <br />
                     <label className="login-or-signup">{this.props.navLink}</label>
-                {this.renderErrors()}
+
                 <div className="login-form">
                     <br/>
                         {name}
-                    <label>
+                        <span className="invalid-span">
+                            {errors["Invalid email "]}
+                        </span>
+                    <label className="email-label">
+                        <span className="email-span">
+                            {errors["Email"]}
+                        </span>
                         <input type="text" 
                         placeholder="Email"
                         value={this.state.email} 
                         onChange={this.update('email')} 
-                        className="login-input"/>
+                        className={emailClass}/>
                     </label>
                     
-                    <label>
+                    <label className="password-label">
+                        <span className="password-span">
+                            {errors["Password"]}
+                        </span>
                         <input type="password"
                             placeholder="Password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            className="login-input" />
+                            className={passwordClass} />
                     </label>
                         {date}
                         <br/>

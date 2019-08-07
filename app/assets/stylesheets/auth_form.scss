@@ -1,9 +1,18 @@
 
+label {
+    display: flex;
+    flex-direction: column;
+}
 input.signin-input {
     height: 44px;
     width: 320px;
-    margin-top: 25px;
+    margin-top: 12px;
     color: rgb(158, 152, 152);
+}
+
+.login-errors {
+    border:1px solid red;
+    
 }
 
 input.login-input {
@@ -11,6 +20,10 @@ input.login-input {
     width: 320px;
     margin-top: 25px;
     color: rgb(158, 152, 152);
+}
+
+.signin-errors {
+    border:1px solid red;
 }
 
 select.date-input {
@@ -25,7 +38,11 @@ select.date-input {
     color: rgb(158, 152, 152);
 }
 
-#male, #female {
+.date-errors {
+     border:1px solid red;
+}
+
+.male, .female {
     margin-top: 10px;
     margin-left: 8px;
     margin-right: 8px;
@@ -38,6 +55,10 @@ select.date-input {
     font-size: 14px;
 }
 
+.male-errors, .female-errors {
+    border:1px solid red;
+}
+
 input.session-submit {
     width: 335px;
     margin-top: 25px;
@@ -46,14 +67,16 @@ input.session-submit {
     font-size: 14px;
     color: white;
     border-radius: 1%;
+    margin-bottom: 50px;
+    position: relative;
+    bottom: 20px;
 }
 
-// $select-button: 33%;
 
-body {
-    height: 100%;
-    width: 100%;
-}
+// body {
+//     height: 100%;
+//     width: 100%;
+// }
 
 nav {
     text-decoration: none;
@@ -68,7 +91,7 @@ nav {
 .check-mark {
     position: absolute;
     fill:rgb(92, 216, 92);
-    margin-left: 25px;
+    margin-left: 65px;
     margin-bottom: 100px;
 }
 
@@ -79,12 +102,12 @@ nav {
 label.login-or-signup {
     width: 320;
     display: flex;
-    justify-content: center;
-    margin-left: 280px;
+    justify-items: end;
+    margin-left: 61%;
     padding-top: 50px;
     color: rgb(158, 152, 152);
     font-size: 14px;
-    overflow: auto !important;
+    // overflow: auto !important;
 }
 input {
     border: 1px solid lightgray;
@@ -177,52 +200,56 @@ a {
     background: rgb(39, 151, 39);
 }
 
-.error-0 {
-    color: red;
+// .error-0 {
+//     color: red;
+//     display: flex;
+//     justify-content: center;
+//     position: relative;
+//     top: 314px;
+//     font-size: 12px;
+// }
+
+.gender-label {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     position: relative;
-    top: 314px;
-    font-size: 12px;
+    bottom: 20px;
 }
-.error-1 {
-    color: red;
+.dob-label {
     display: flex;
-    justify-content: center;
-    position: relative;
-    top: 157px;
-    font-size: 12px;
+    flex-direction: row;
 }
-.error-2 {
-    color: red;
-    display: flex;
-    justify-content: center;
+
+.first-span, .last-span, .gender-span, .dob-span, .email-span, .password-span, .invalid-span{
     position: relative;
-    top: 217px;
+    overflow: inherit;
     font-size: 12px;
+    color: red;
 }
-.error-3 {
-    color: red;
-    display: flex;
-    justify-content: center;
+
+.email-span {
     position: relative;
-    top: 421px;
-    font-size: 12px;
+    top: 12px;
 }
-.error-4 {
-    color: red;
-    display: flex;
-    justify-content: center;
+
+.password-span {
     position: relative;
-    top: 483px;
-    font-size: 12px;
-    background: transparent;
+    top: 12px;
 }
-.error-5 {
-    color: red;
-    display: flex;
-    justify-content: center;
+
+.dob-span {
     position: relative;
-    top: 326px;
+    left: 8px;
+    top: 10px;
+}
+
+.gender-span {
+    position:relative;
+    left: 8px;
+    bottom: 25px;
+}
+
+.invalid-span {
     font-size: 12px;
+    color: red;
 }

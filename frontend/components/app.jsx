@@ -15,7 +15,16 @@ import LogInFormContainer from './session_form/login_form_container';
 import WelcomeContainer from './welcome/welcome_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Background from './background/background';
-// import RouteCreateContainer from './routes/create_route_container';
+// import CreateRouteContainer from './routes/create_route_container';
+import CreateRoute from './routes/create_route';
+
+const mapCenter = { lat: 40.783848, lng: -73.964573 };
+
+const locations = [
+    { lat: 40.754910, lng: -73.994100, name: "Empire State Building" },
+    { lat: 40.744680, lng: -73.758070, name: "Queens" },
+    { lat: 40.611700, lng: -73.909150, name: "Brooklyn" }
+]
 
 const App = () => {
     return (
@@ -31,10 +40,13 @@ const App = () => {
             </header>
             
             <WelcomeContainer />
+
+            {/* <CreateRoute center={mapCenter}/> */}
+
             <Switch>
                 <AuthRoute exact path="/login" component={LogInFormContainer} />
                 <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-                {/* <ProtectedRoute exact path="/routes/create" component={RouteCreateContainer} /> */}
+                <Route exact path="/routes/create" component={CreateRoute} />
             </Switch>
             {/* <span>
                 <Link to="sign"></Link>
