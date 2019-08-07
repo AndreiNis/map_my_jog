@@ -5,6 +5,7 @@ class MarkerManager {
         this.map = map;
         this.markers = {};
     };
+    
 
     updateMarkers(routes) {
         const routesObject = {};

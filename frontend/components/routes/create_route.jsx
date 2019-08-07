@@ -4,18 +4,21 @@ import merge from 'lodash/merge';
 import MarkerManager from '../../util/marker_manager';
 import { withRouter } from 'react-router-dom';
 
-const mapCenter = { lat: 40.783848, lng: -73.964573};
-
-// const locations = [
-//     { lat: 40.754910, lng: -73.994100, name: "Empire State Building" },
-//     { lat: 40.744680, lng: -73.758070, name: "Queens" },
-//     { lat: 40.611700, lng: -73.909150, name: "Brooklyn" }
-// ]
 
 const getCoords = latLng => ({
     lat: latLng.lat(),
     lng: latLng.lng()
 });
+
+const mapOptions = {
+    center: {
+        lat: 40.783848,
+        lng: -73.964573
+    },
+    zoom: 13,
+    mapTypeId: 'roadmap',
+    draggableCursor: 'crosshair'
+};
 
 class CreateRoute extends React.Component {
     constructor(props) {
@@ -27,50 +30,40 @@ class CreateRoute extends React.Component {
 
         this.markers = [];
         this.endpoints = [];
-        this.mapCenter = { lat: 40.783848, lng: -73.964573 };
 
-        // this.addLocation = this.addLocation.bind(this);
     }
 
     componentDidMount() {
         const map = ReactDOM.findDOMNode(this.refs.map)
-
-        const options = {
-            mapTypeId: 'roadmap',
-            draggableCursor: 'crosshair',
-            center: this.mapCenter,
-            zoom: 13
-        }
+        this.map = new google.maps.Map(map, mapOptions);
+        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+        this.registerListeners(map);
         
-        this.map = new google.maps.Map(map, options);
-        this.listenForMove(map);
+    };
 
-        // this.props.locations.forEach(this.addLocation)
+    registerListeners(map) {
+        google.maps.event.addListener(this.map, 'click', (event) => {
+            const coords = getCoords(event.latLng);
+            this.handleClick(coords);
+        });
     }
 
-    // addLocations(location) {
-    //     const pos = new google.maps.LatLng(location.lat, location.lng);
+    handleMarkerClick(route) {
+        this.props.history.push(`routes/${route.id}`);
+    }
 
-    //     });
-
-    // };
-
-    listenForMove(map) {
-        // debugger
-        google.maps.event.addListener(map, 'click', function(event) {
-            placeMarker(event.latLng);
+    handleClick(coords) {
+        let marker = new google.maps.Marker({
+            position: coords,
+            map: this.map,
+            draggable: true,
+            animation: google.maps.Animation.DROP
         });
-        
+        this.markers.push(marker);
+        // debugger
     }
     
-    placeMarker(location) {
-        // debugger
-        let marker = new google.maps.Marker({
-            position: location,
-            map: map
-        })
-        marker.setMap(this.map);
-    }
+    
 
     render() {
         return (
