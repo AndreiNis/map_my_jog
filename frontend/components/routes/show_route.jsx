@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 class RouteShow extends React.Component {
     constructor(props){
         
@@ -98,9 +98,9 @@ class RouteShow extends React.Component {
     
         return (
         <div>
-            {/* <span className="home-span">
+            <span className="home-span">
                 <Link to="/">Home</Link>
-            </span> */}
+            </span>
             <div id="show-map" ref='map'/>
                 
         </div>
