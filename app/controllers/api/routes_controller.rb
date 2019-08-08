@@ -34,6 +34,6 @@ class Api::RoutesController < ApplicationController
     private
 
     def route_params
-        params.require(:route).permit(:name, :polyline, :user_id)
+        params.require(:route).permit(:distance, :name, :polyline, :user_id)
     end
 end

@@ -34,34 +34,15 @@ class CreateRoute extends React.Component {
         this.map = null;
         this.directionsService = new google.maps.DirectionsService();
         this.directionsDisplay = new google.maps.DirectionsRenderer({ preserveViewport: true });
-        // this.changeMapCenter = this.changeMapCenter.bind(this);
-        // this.addMarker = this.addMarker.bind(this);
+        this.addMarker = this.addMarker.bind(this);
         // this.encodeMarkers = this.encodeMarkers.bind(this);
-        // this.undoMarker = this.undoMarker.bind(this);
-        // this.clearMap = this.clearMap.bind(this);
+        this.undoMarker = this.undoMarker.bind(this);
+        this.clearMap = this.clearMap.bind(this);
         // this.saveRoute = this.saveRoute.bind(this);
     }
 
     componentDidMount() {
         this.initMap();
-        // const map = ReactDOM.findDOMNode(this.refs.map)
-        // this.map = new google.maps.Map(map, mapOptions);
-        // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-        // this.registerListeners(map);
-        // this.directionsService = new google.maps.DirectionsService();
-        // this.directionsDisplay = new google.maps.DirectionsRenderer({
-        //     draggable: false,
-        //     map: this.map,
-        // });
-        // debugger
-        // let path = new google.maps.MVCArray();
-        // let routePoly = new google.maps.Polyline({
-        //     strokeColor: '#FF0000',
-        //     strokeOpacity: 1.0,
-        //     strokeWeight: 2
-        // });
-        // routePoly.setMap(this.map);
-        // this.setState({ polyline: google.maps.geometry.encoding.encodePath(path) });
     };
 
     initMap() {
@@ -76,19 +57,11 @@ class CreateRoute extends React.Component {
 
     addMarker(coords) {
         let iconScale = 0;
-        // if (this.markers.length === 0) {
-        //     this.geocoder.geocode({ 'location': coords }, (results, status) => {
-        //         this.setState({ city: results[0].formatted_address });
-        //     });
-        // }
-
-        // let skateIcon = image-url("skate-icon.jpg");
 
         let marker = new google.maps.Marker({
             position: coords,
             map: this.map,
             icon: {
-                // path: skateIcon,
                 path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
                 scale: iconScale,
             }
@@ -117,8 +90,6 @@ class CreateRoute extends React.Component {
         this.directionsDisplay.setMap(this.map);
     }
     calcAndDisplayRoute(directionsService, directionsDisplay) {
-        // if (this.markers.length <= 1) return;
-
         let start = this.markers[0].position;
         let end = this.markers[this.markers.length - 1].position;
         let waypoints = [];
@@ -149,75 +120,57 @@ class CreateRoute extends React.Component {
         });
     }
 
-    // registerListeners(map) {
-    //     google.maps.event.addListener(this.map, 'click', (event) => {
-    //         const coords = getCoords(event.latLng);
-    //         this.handleClick(coords);
-    //         this.endpoints.push(coords);
-            
-    //         let routePath = new google.maps.Polyline({
-    //             path: this.endpoints,
-    //             geodesic: true,
-    //             strokeColor: '#FF0000',
-    //             strokeOpacity: 1.0,
-    //             strokeWeight: 2
-    //         })
-    //         routePath.setMap(this.map);
-    //         // debugger
-    //         // if (this.endpoints.length === 2) {
-    //         //     debugger
-    //         //     this.removeMarkers();
-    //         //     this.displayRoute(this.endpoints[0], this.endpoints[1], this.directionsService, this.directionsDisplay);
-    //         // }
-    //     });
-    // }
-    
-    // displayRoute(origin, destination, service, display) {
-    //     service.route({
-    //         origin: origin,
-    //         destination: destination,
-    //         // watpoints: waypts,
-    //         travelMode: 'WALKING'
-    //     }, function (response, status) {
-    //         if (status === 'OK') {
-    //             display.setDirections(response);
-    //         } else {
-    //             alert('Could not display directions due to: ' + status);
-    //         }
-    //     }.bind(this));
-    // }
-
     removeMarkers() {
         for (let i = 0; i < this.markers.length; i++) {
             this.markers[i].setMap(null);
         }
     }
 
-    handleMarkerClick(route) {
-        this.props.history.push(`routes/${route.id}`);
-    }
-
-    handleClick(coords) {
-        let marker = new google.maps.Marker({
-            position: coords,
-            map: this.map,
-            draggable: false,
-            animation: google.maps.Animation.DROP
+    encodeMarkers() {
+        let markerString = '';
+        this.markers.forEach(marker => {
+            let latitude = marker.getPosition().lat();
+            let longitude = marker.getPosition().lng();
+            markerString += `${latitude},${longitude},`;
         });
-        this.markers.push(marker);
-        // debugger
-    }
 
-    handleSubmit(e) {
-        preventDefault();
-        const route = merge({}, this.state)
-        this.props.processForm(route, this.props);
+        return markerString.slice(0, -1);
+    }
+    // handleClick(coords) {
+    //     let marker = new google.maps.Marker({
+    //         position: coords,
+    //         map: this.map,
+    //         draggable: false,
+    //         animation: google.maps.Animation.DROP
+    //     });
+    //     this.markers.push(marker);
+    //     // debugger
+    // }
+
+    // handleSubmit(e) {
+    //     preventDefault();
+    //     const route = merge({}, this.state)
+    //     this.props.processForm(route, this.props);
+    // }
+    newParams() {
+        return {
+            name: this.state.name,
+            polyline: this.encodeMarkers(),
+            user_id: this.state.userId,
+            distance: this.state.distance,
+        };
     }
 
     update(field){
         return (e => this.setState({
             [field]: e.target.value
         }));
+    }
+
+    saveRoute(e) {
+        e.preventDefault();
+        this.props.createRoute(this.newParams())
+        .then(data => this.props.history.push(`/routes/show/${data.skateRoute.id}`));
     }
     // addLine() {
     //     flightPath.setMap(map);

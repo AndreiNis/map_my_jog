@@ -1,1 +1,1 @@
-json.extract! route, :id, :name, :polyline, :user_id
+json.extract! route, :id, :distance, :name, :polyline, :user_id
