@@ -15,7 +15,7 @@ const msp = ({ errors }) => {
     return {
         errors: obj,
         formType: 'Sign up',
-        navLink: <Link to="/login">LOG IN</Link>,
+        navLink: <Link to="/login">LOG IN</Link>,     
     };
 };
 

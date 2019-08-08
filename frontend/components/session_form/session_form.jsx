@@ -55,7 +55,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        // debugger
         const { errors } = this.props;
         const emailClass = errors["Email"] ? "login-input login-errors" : "login-input";
         const passwordClass = errors["Password"] ? "login-input login-errors" : "login-input";

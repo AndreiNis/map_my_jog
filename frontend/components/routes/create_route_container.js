@@ -9,7 +9,7 @@ const msp = (state) => ({
 });
 
 const mdp = (dispatch) => ({
-    processForm: (route, props) => dispatch(createRoute(route, props)),
+    createRoute: (route) => dispatch(createRoute(route)),
     clearErrors: () => dispatch(clearErrors())
 });
 

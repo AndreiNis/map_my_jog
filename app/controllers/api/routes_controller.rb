@@ -1,5 +1,5 @@
 class Api::RoutesController < ApplicationController
-    before_action :require_login
+    before_action :require_logged_in
 
     def index
         @routes = Route.all
@@ -16,7 +16,7 @@ class Api::RoutesController < ApplicationController
         if @route.save
             render :show
         else
-            render json @route.errors.full_messages, status: 422
+            render json: @route.errors.full_messages, status: 422
         end
     end
 

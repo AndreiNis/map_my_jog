@@ -49,12 +49,12 @@ export const fetchRoute = (id) => dispatch => (
     })
 );
 
-export const createRoute = (route, props) => dispatch => (
+export const createRoute = (route) => dispatch => (
     RouteApiUtil.createRoute(route).then(route => (
         dispatch(receiveRoute(route))
     ), err => {
         return dispatch(receiveErrors(err.responseJSON))
-    }).then(props.history.push("/routes/my_routes"))
+    })
 );
 
 export const updateRoute = (route) => dispatch => (

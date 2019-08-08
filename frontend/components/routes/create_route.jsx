@@ -1,14 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import merge from 'lodash/merge';
-import MarkerManager from '../../util/marker_manager';
 import { withRouter } from 'react-router-dom';
-
-
-const getCoords = latLng => ({
-    lat: latLng.lat(),
-    lng: latLng.lng()
-});
 
 const mapOptions = {
     center: {
@@ -22,23 +15,25 @@ const mapOptions = {
 
 class CreateRoute extends React.Component {
     constructor(props) {
-        super(props);
+        
+        super(props); // need more stuff in state
+        
         this.state = {
+            userId: null, // pass user ???
             polyline: "",
             name: "",
             distance: 0
         };
 
         this.markers = [];
-        this.endpoints = [];
         this.map = null;
         this.directionsService = new google.maps.DirectionsService();
         this.directionsDisplay = new google.maps.DirectionsRenderer({ preserveViewport: true });
         this.addMarker = this.addMarker.bind(this);
-        // this.encodeMarkers = this.encodeMarkers.bind(this);
+        this.encodeMarkers = this.encodeMarkers.bind(this);
         this.undoMarker = this.undoMarker.bind(this);
         this.clearMap = this.clearMap.bind(this);
-        // this.saveRoute = this.saveRoute.bind(this);
+        this.saveRoute = this.saveRoute.bind(this);
     }
 
     componentDidMount() {
@@ -85,7 +80,6 @@ class CreateRoute extends React.Component {
         this.directionsDisplay.setMap(null);
         this.directionsDisplay = null;
         this.setState({ distance: 0 });
-
         this.directionsDisplay = new google.maps.DirectionsRenderer({ preserveViewport: true });
         this.directionsDisplay.setMap(this.map);
     }
@@ -126,7 +120,7 @@ class CreateRoute extends React.Component {
         }
     }
 
-    encodeMarkers() {
+    encodeMarkers() { // works 
         let markerString = '';
         this.markers.forEach(marker => {
             let latitude = marker.getPosition().lat();
@@ -144,15 +138,16 @@ class CreateRoute extends React.Component {
     //         animation: google.maps.Animation.DROP
     //     });
     //     this.markers.push(marker);
-    //     // debugger
+    //     // 
     // }
 
     // handleSubmit(e) {
     //     preventDefault();
     //     const route = merge({}, this.state)
-    //     this.props.processForm(route, this.props);
+    //     this.props.createForm(route, this.props);
     // }
     newParams() {
+        
         return {
             name: this.state.name,
             polyline: this.encodeMarkers(),
@@ -168,29 +163,39 @@ class CreateRoute extends React.Component {
     }
 
     saveRoute(e) {
+        
         e.preventDefault();
-        this.props.createRoute(this.newParams())
-        .then(data => this.props.history.push(`/routes/show/${data.skateRoute.id}`));
+        this.props.createRoute(this.newParams()).
+        then(data => this.props.history.push(`/routes/show/${data.route.id}`));
     }
-    // addLine() {
-    //     flightPath.setMap(map);
-    // }
-
-    // removeLine() {
-    //     routePath.setMap(null);
-    // }
 
     render() {
         return (
-            <div>
+            <div className="map-page">
+                <label className="map-container">
                 <div id='map' ref='map' />
-                {/* <button onClick={this.removeLine()} value="Remove Line"/> */}
-                <p>
-
-                </p>
+                </label>
+                <form className="new-route-form" onSubmit={this.saveRoute}>
+                    <div className="controls">
+                        <input
+                            className="form-map-input"
+                            type="text"
+                            id="name-form-input"
+                            value={this.state.name}
+                            onChange={this.update('name')}
+                            placeholder="Name this map"
+                        />
+                        <span className="required"> *</span>
+                    </div>
+                    <button
+                        className="route-save"
+                        type="submit"
+                    >SAVE ROUTE</button>
+                </form>
+                
             </div>
         );
-    };;
+    };
 }
 
 export default CreateRoute;
