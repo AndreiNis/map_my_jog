@@ -19,6 +19,25 @@
 }
 
 .home-span{
-    margin-bottom: 10px;
-    margin-top: 10px;
+    position: relative;
+    right: 40.5%;
+}
+
+.show-map-details {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.show-map-details * {
+    margin-left: 25px;
+}
+#show-map {
+    margin-bottom: 50px;
+}
+
+.route-distance {
+    position: relative;
+    left: 25%;
 }

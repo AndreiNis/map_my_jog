@@ -46,6 +46,7 @@
     height: auto;
     background: white;
     overflow: inherit;
+    margin-bottom: -50px;
 }
 
 .background {
@@ -59,7 +60,7 @@
 
 .bkg-text-1 {
     // justify-content: flex-end;
-    overflow: inherit;
+    overflow: hidden;
     position: relative;
     top: 100px;
     left: 65%;
@@ -67,6 +68,16 @@
     color: white;
     font-size: 30px;
 }
+
+// .bkg-line{
+//     overflow: visible;
+//     position: relative;
+//     top: 80px;
+//     left: 84%;
+//     background: empty;
+//     color: white;
+//     font-size: 40px;
+// }
 
 .sneaker-add {
     width: 40%;
@@ -82,7 +93,6 @@
 .logo-link {
     padding-top:13px;
     background: #F0F0F0;
-    // 
 }
 
 .jackie {
@@ -90,14 +100,11 @@
     justify-content: end;
     position: relative;
     bottom: 755px;
+    width: 100vw;
+    object-fit: fill;
 }
 
 .create-route-link {
-    // display: flex;
-    // justify-content: flex-end;
-    // align-content: center;
-    // margin-right: 25px;
-    // padding-left: 12px;
     padding-top:10px;
     padding-left: 10px;
     margin-top: 20px;

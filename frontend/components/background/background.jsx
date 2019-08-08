@@ -6,9 +6,12 @@ const Background = () => {
             {/* <span className="bar-1">___________</span> */}
             {/* <span className="bar-2">___________</span> */}
             <div className="background">
+            <span className="bkg-line">________</span>
             <span className="bkg-text-1">MAKE EVERY MILE COUNT</span>
-            <img src="https://mapmy.uastatic.com/7ca8061f7a49ffa4c0a53685482b14aa.png" alt="women jogging"/>
-            <img src="https://mapmy.uastatic.com/9b2217b59621acf4f24bfd26d9c2c3ca.png" alt="cloudy sky over city"/>            
+            <span >
+                    <img className="women-img" src="https://mapmy.uastatic.com/7ca8061f7a49ffa4c0a53685482b14aa.png" alt="women jogging"/>
+            </span>
+            <img className="sky-img" src="https://mapmy.uastatic.com/9b2217b59621acf4f24bfd26d9c2c3ca.png" alt="cloudy sky over city"/>            
             </div>
             <span>
                 <img className = "sneaker-add" src="https://mapmy.uastatic.com/646485d1f91b975423404dadbe0ebf5e.png" alt="sneaker advertisement" />
