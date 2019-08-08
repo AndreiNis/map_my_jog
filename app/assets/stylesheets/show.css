@@ -1,0 +1,24 @@
+.show-map-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-show {
+    font-size: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 1px solid grey;
+    background: white;
+}
+
+.home-show:hover{
+    background: #F0F0F0; 
+}
+
+.home-span{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

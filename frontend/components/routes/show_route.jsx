@@ -33,7 +33,7 @@ class RouteShow extends React.Component {
     }
 
     initMap() {
-        debugger
+        
         const mapOptions = {mapTypeId: 'roadmap'}
         let map = new google.maps.Map(this.refs.map, mapOptions);
         this.directionsDisplay.setMap(map);
@@ -42,7 +42,7 @@ class RouteShow extends React.Component {
     }
 
     decodeMarkers() {
-        debugger
+        
         let coordinateList = this.props.route.polyline.split(',').map(Number);
 
         for (let i = 0; i < coordinateList.length; i += 2) {
@@ -60,7 +60,7 @@ class RouteShow extends React.Component {
     }
 
     calcAndDisplayRoute(directionsService, directionsDisplay) {
-        debugger
+        
         let start = this.markers[0].position;
         let end = this.markers[this.markers.length - 1].position;
         let waypoints = [];
@@ -81,7 +81,7 @@ class RouteShow extends React.Component {
 
         this.directionsService.route(request, (response, status) => {
             if (status == 'OK') {
-                debugger
+                
                 this.directionsDisplay.setDirections(response);
 
                 let distanceInMeters = 0;
@@ -94,15 +94,14 @@ class RouteShow extends React.Component {
 
 
     render() {
-        debugger
+        
     
         return (
-        <div>
+        <div className="show-map-container">
             <span className="home-span">
-                <Link to="/">Home</Link>
+                <Link className="home-show" to="/">Home</Link>
             </span>
-            <div id="show-map" ref='map'/>
-                
+            <div id="show-map" ref='map'/>         
         </div>
         );
     };
