@@ -17,7 +17,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Background from './background/background';
 import CreateRouteContainer from './routes/create_route_container';
 import RouteShowContainer from './routes/show_route_container';
-
+import RouteIndexContainer from './routes/route_index_container';
 
 const App = () => {
     return (
@@ -39,6 +39,7 @@ const App = () => {
                 <AuthRoute exact path="/signup" component={SignUpFormContainer} />
                 <ProtectedRoute exact path="/routes/create" component={CreateRouteContainer} />
                 <Route exact path="/routes/show/:routeId" component={RouteShowContainer}/>
+                {/* <ProtectedRoute path="/routes/index" component={RouteIndexContainer} /> */}
             </Switch>
             
             <Route exact path="/" component={Background}/>

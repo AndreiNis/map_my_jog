@@ -10,7 +10,7 @@ const msp = ({ errors }) => {
         let tmp = e.split("or");
         obj[tmp[0]] = e;
     })
-    console.log(obj);
+
     return {
         errors: obj,
         formType: 'Login',
@@ -20,8 +20,17 @@ const msp = ({ errors }) => {
 };
 
 const mdp = dispatch => {
+    const demoUser = ({
+        email: "user3@user3.com", 
+        password: "stargate", 
+        first_name: "Demo", 
+        last_name: "User",
+        dob: "(Date.new(2001, 02, 03))",
+        gender: "Male"
+    });
     return {
         processForm: (user) => dispatch(login(user)),
+        loginDemoUser: () => dispatch(login(demoUser)),
     };
 };
 

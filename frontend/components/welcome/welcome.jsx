@@ -12,7 +12,7 @@ const Welcome = ({ currentUser, logout }) => {
     );
     const personalWelcome = () => (
         <hgroup className="header-group">
-            <h2 className="header-name">Welcome, {currentUser.first_name}!</h2>
+            <h2 className="header-name"></h2>
             <Link className="create-route-link" to="/routes/create" >Create Route</Link>
             <button className="header-button" onClick={logout}>Log Out</button>
         </hgroup>

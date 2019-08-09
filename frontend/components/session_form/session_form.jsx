@@ -17,6 +17,7 @@ class SessionForm extends React.Component {
             // country:
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoLogin = this.handleDemoLogin.bind(this);
     }
 
     update(field) {
@@ -32,9 +33,12 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     }
 
-    // componentWillUnmount(){
-    //     this.props.clearErrors();
-    // };
+    handleDemoLogin(e) {
+        e.preventDefault();
+        this.props.loginDemoUser()
+            .then(() => this.props.history.replace('/routes/create'));
+    }
+
     // className = {`error-${i}`}
     renderErrors() {
         const errorsArray = Object.values(this.props.errors);
@@ -198,7 +202,7 @@ class SessionForm extends React.Component {
                 
                 <br />
                     <label className="login-or-signup">{this.props.navLink}</label>
-
+                    <button className="demo-login" onClick={this.handleDemoLogin}>Demo Log In</button>
                 <div className="login-form">
                     <br/>
                         {name}
@@ -233,6 +237,7 @@ class SessionForm extends React.Component {
                     <br/>
                     <input className="session-submit" type="submit" value={this.props.formType}/>
                 </div>
+                   
             </form>
         </div>
         )
