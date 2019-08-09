@@ -50,59 +50,103 @@
 }
 
 .background {
-    padding-bottom: 200px;
+    // padding-bottom: 200px;
     // overflow: hidden;
     width: 100%;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     flex-direction: column;
 }
 
+.women-img {
+    // position:relative;
+    // bottom: 28px;
+    width: 100%;
+    /* background-size: cover; */
+}
+
 .bkg-text-1 {
-    // justify-content: flex-end;
-    overflow: hidden;
+    height: 0;
+    overflow: visible;
     position: relative;
     top: 100px;
-    left: 65%;
+    left: 55%;
     background: transparent;
     color: white;
     font-size: 30px;
+    z-index: 0;
 }
 
-// .bkg-line{
-//     overflow: visible;
-//     position: relative;
-//     top: 80px;
-//     left: 84%;
-//     background: empty;
-//     color: white;
-//     font-size: 40px;
-// }
+.bkg-text-2 {
+    display: block;
+    height: 0;
+    overflow: visible;
+    position: relative;
+    top: 160px;
+    left: 63%;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    z-index: 0;
+}
+
+.bkg-line-1 {
+    height: 0;
+    overflow: visible;
+    position: relative;
+    top: 25px;
+    left: 75%;
+    background: transparent;
+    color: white;
+    font-size: 60px;
+    z-index: 0;
+}
+
+.bkg-line-2 {
+    height: 0;
+    overflow: visible;
+    position: relative;
+    top: 90px;
+    left: 75%;
+    background: transparent;
+    color: white;
+    font-size: 60px;
+    z-index: 0;
+}
+
+.stack-img {
+    position: relative;
+    bottom: 120px;
+    display:block;
+}
 
 .sneaker-add {
     width: 40%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    left: 500px;
-    bottom: 850px;
-    background: transparent;
+    // justify-content: center;
+    position: absolute;
+    left: 550px;
+    top: 90px;
+    // background: transparent;
+    z-index: 0;
+    display:block;
+}
+.sky-img {
+    position:absolute;
+    width: 100%;
 }
 
+.cool-map {
+    position: relative;
+    top: 500px;
+}
 
 .logo-link {
     padding-top:13px;
     background: #F0F0F0;
 }
 
-.jackie {
-    display: flex;
-    justify-content: end;
-    position: relative;
-    bottom: 755px;
-    width: 100vw;
-    object-fit: fill;
-}
+
+
 
 .create-route-link {
     padding-top:10px;
