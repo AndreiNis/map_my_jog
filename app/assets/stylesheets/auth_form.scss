@@ -126,6 +126,10 @@ input {
     flex-direction: column;
 }
 
+form.login-form-box  {
+    z-index: 3;
+    overflow: hidden;
+}
 
 ::-webkit-input-placeholder {
   color: rgb(158, 152, 152);
