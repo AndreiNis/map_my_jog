@@ -83,6 +83,8 @@ class CreateRoute extends React.Component {
         this.directionsDisplay = new google.maps.DirectionsRenderer({ preserveViewport: true });
         this.directionsDisplay.setMap(this.map);
     }
+
+    
     calcAndDisplayRoute(directionsService, directionsDisplay) {
         let start = this.markers[0].position;
         let end = this.markers[this.markers.length - 1].position;
@@ -120,7 +122,7 @@ class CreateRoute extends React.Component {
         }
     }
 
-    encodeMarkers() { // works 
+    encodeMarkers() { 
         let markerString = '';
         this.markers.forEach(marker => {
             let latitude = marker.getPosition().lat();
@@ -130,22 +132,7 @@ class CreateRoute extends React.Component {
 
         return markerString.slice(0, -1);
     }
-    // handleClick(coords) {
-    //     let marker = new google.maps.Marker({
-    //         position: coords,
-    //         map: this.map,
-    //         draggable: false,
-    //         animation: google.maps.Animation.DROP
-    //     });
-    //     this.markers.push(marker);
-    //     // 
-    // }
 
-    // handleSubmit(e) {
-    //     preventDefault();
-    //     const route = merge({}, this.state)
-    //     this.props.createForm(route, this.props);
-    // }
     newParams() {
         
         return {
