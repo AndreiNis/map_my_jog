@@ -1,7 +1,7 @@
-Map My Jog - Map My Run clone
+#Map My Jog - Map My Run clone
 Map My Jog is a route planning application aimed at creating, sharing and viewing jogging routes between users. Inspired by Map My Run which is an application made by the Under Armour clothing brand. Map My Jog implements Google Maps V3 and Google Directions Service api's for planning multiple waypoints together with google maps directions(streets, park roads, etc.). Backed by Rails and postgresSQL, Map My Job operates with React.js and Redux libraries for the front end. Due to a 10 day time constraint window for, many features and functionality are missing.
 
-Features
+##Features
 Standard User Authentification by use of session tokens and BCrypt encryption
 Ability to add multiple markers to google maps api
 Mapping directions from one waypoints to another using traversable and legal routes
@@ -74,7 +74,7 @@ Working Example of Show Page
 
 Screen-Shot-2019-08-09-at-10-12-35-AM
 
-Future Implementations
+##Future Implementations
 Users have list of created routes
 Users can view and save other users routes
 Routes can be commented and rated
