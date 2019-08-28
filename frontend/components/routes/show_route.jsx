@@ -96,11 +96,6 @@ class RouteShow extends React.Component {
     render() {
         if (!this.props.route) return null;
 
-        // debugger
-        // if (this.props.route.name) {
-        // const name = this.props.route.name;
-        // const dist = this.props.route.distance;}
-        // debugger
         return (
         <div className="show-map-container">
            <ul className="show-map-details">

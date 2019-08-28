@@ -4,8 +4,7 @@ import { fetchRoutes } from '../../actions/route_actions';
 
 const msp = state => {
     const routes = state.entities.routes;
-    debugger
-    return ({ routes });
+    return ({ routes }); 
 };
 
 const mdp = dispatch => ({

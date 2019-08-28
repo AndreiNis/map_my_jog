@@ -1,0 +1,26 @@
+.view-label  {
+    display: flex;
+    /* align-items: flex-center; */
+    justify-content: space-between;
+    margin-left: 280px;
+    margin-right: 280px;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+/* .view-list {
+    width: 200;
+} */
+
+.view-item {
+    display: flex;
+    /* align-items: flex-center; */
+    justify-content: space-between;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.routes-title {
+    display: flex;
+    justify-content: center;
+}

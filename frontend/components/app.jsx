@@ -39,7 +39,7 @@ const App = () => {
                 <AuthRoute exact path="/signup" component={SignUpFormContainer} />
                 <ProtectedRoute exact path="/routes/create" component={CreateRouteContainer} />
                 <Route exact path="/routes/show/:routeId" component={RouteShowContainer}/>
-                {/* <ProtectedRoute path="/routes/index" component={RouteIndexContainer} /> */}
+                <ProtectedRoute exact path="/routes/index" component={RouteIndexContainer} />
             </Switch>
             
             <Route exact path="/" component={Background}/>

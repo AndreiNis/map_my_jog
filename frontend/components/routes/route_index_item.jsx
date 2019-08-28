@@ -10,21 +10,12 @@ class RouteIndexItem extends React.Component {
         const route = this.props.route;
 
         return (
-            <tr>
-                <td className="thumbnail-cell">
-                    <Link to={`/routes/show/${route.id}`}>
-                        <img alt="route-map"></img>
-                    </Link>
-                </td>
-                <td>
-                    <span>{route.distance} mi</span>
-                </td>
-                <td>
-                    <Link to={`/routes/show/${route.id}`}>
-                        <span>{route.name}</span>
-                    </Link>
-                </td>
-            </tr>
+            <div className="view-item">
+                <Link to={`/routes/show/${route.id}`}>
+                    <span>{route.name}</span>
+                </Link>
+                <span>{route.distance} mi</span>         
+            </div>          
         )
     }
 }

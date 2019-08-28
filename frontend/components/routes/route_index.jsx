@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import RouteIndexItem from './route_index_item';
 
 class RouteIndex extends React.Component {
     componentDidMount() {
-        debugger
         this.props.fetchRoutes();
     }
 
@@ -18,17 +16,15 @@ class RouteIndex extends React.Component {
                     <h3 className="routes-title">
                         <span>ROUTES</span>
                         </h3>
-                    <Link className="create-route" to="/routes/create">
+                    {/* <Link className="create-route" to="/routes/create">
                         <button className="create-button">CREATE A ROUTE</button>
-                    </Link>
+                    </Link> */}
                 </div>
-                    <label>
-                        <li className="thumbnail-cell"><span>Route</span></li>
-                        <li><span>Distance</span></li>
-                        <li><span>Name</span></li>
-                        <li><span>Options</span></li>
+                    <label className="view-label">
+                        <ul><span>Name</span></ul>
+                        <ul><span>Distance</span></ul>
                     </label>
-                    <label>
+                    <label className="view-list">
                     {
                         routes.map(route => (
                             <RouteIndexItem
