@@ -160,8 +160,12 @@ class CreateRoute extends React.Component {
         return (
             <div className="map-page">
                 <label className="map-container">
-                <div id='map' ref='map' />
+                    <div id='map' ref='map' />
                 </label>
+            <div className="map-buttons">
+                <button onClick={this.undoMarker}>Undo</button>    
+                <button onClick={this.clearMap}>Clear</button>    
+            </div>
                 <form className="new-route-form" onSubmit={this.saveRoute}>
                     <div className="controls">
                         <input
@@ -179,7 +183,6 @@ class CreateRoute extends React.Component {
                         type="submit"
                     >SAVE ROUTE</button>
                 </form>
-                
             </div>
         );
     };
