@@ -9,7 +9,7 @@
 * Mapping directions from one waypoints to another using traversable and legal routes
 * User can save map and each map has its own show page
 
-* Route Creation
+## Route Creation
 Using Google Maps Api and Directions Service, users are able to create a route by placing multiple waypoints on the map. Due to Directions Service only taking a start and end destination, a loop was necessarry in order to switch through each waypoints, assiging the end destination as the new start.
 
     calcAndDisplayRoute(directionsService, directionsDisplay) {
@@ -74,13 +74,15 @@ When showing a route decoding is required.
         }
     }
 
+* Working Example 
+    <a href="https://ibb.co/wwmGVsb"><img src="https://i.ibb.co/3MZ62z8/mapmyjog.png" alt="mapmyjog" border="0"></a>
 
 ## Future Implementations
-Users have list of created routes
-Users can view and save other users routes
-Routes can be commented and rated
-More functionality for both maps and routes(edit, delete, undo marker, etc.)
-Implementation of Google Geolocation for address searches.
-Users can friend other users, as well as send and receive messages
-Users have a profile page
-Users have a dashboard which keeps track of statistics(routes ran, time, etc.)
+* Users have list of created routes
+* Users can view and save other users routes
+* Routes can be commented and rated
+* More functionality for both maps and routes(edit, delete, undo marker, etc.)
+* Implementation of Google Geolocation for address searches.
+* Users can friend other users, as well as send and receive messages
+* Users have a profile page
+* Users have a dashboard which keeps track of statistics(routes ran, time, etc.)
