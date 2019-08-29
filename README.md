@@ -74,8 +74,9 @@ When showing a route decoding is required.
         }
     }
 
-* Working Example 
-    <a href="https://ibb.co/wwmGVsb"><img src="https://i.ibb.co/3MZ62z8/mapmyjog.png" alt="mapmyjog" border="0"></a>
+## Working Example 
+
+<a href="https://ibb.co/wwmGVsb"><img src="https://i.ibb.co/3MZ62z8/mapmyjog.png" alt="mapmyjog" border="0"></a>
 
 ## Future Implementations
 * Users have list of created routes
