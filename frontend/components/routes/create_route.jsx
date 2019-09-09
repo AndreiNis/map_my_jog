@@ -162,9 +162,9 @@ class CreateRoute extends React.Component {
                 <label className="map-container">
                     <div id='map' ref='map' />
                 </label>
-            <div className="map-buttons">
-                <button onClick={this.undoMarker}>Undo</button>    
-                <button onClick={this.clearMap}>Clear</button>    
+            <div className="map-buttons-container">
+                <button className="map-buttons" onClick={this.undoMarker}>Undo</button>    
+                <button className="map-buttons" onClick={this.clearMap}>Clear</button>    
             </div>
                 <form className="new-route-form" onSubmit={this.saveRoute}>
                     <div className="controls">
