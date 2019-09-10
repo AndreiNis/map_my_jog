@@ -4,9 +4,13 @@ import { createRoute } from '../../actions/route_actions';
 import { clearErrors } from '../../actions/session_actions';
 import CreateRoute from './create_route';
 
-const msp = (state) => ({
-    user_id: state.session.id
-});
+const msp = (state) => {
+    debugger
+    return {
+    user_id: state.session.id,
+    errors: state.errors.routes,
+    }
+};
 
 const mdp = (dispatch) => ({
     createRoute: (route) => dispatch(createRoute(route)),

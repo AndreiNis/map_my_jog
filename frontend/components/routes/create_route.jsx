@@ -150,10 +150,13 @@ class CreateRoute extends React.Component {
     }
 
     saveRoute(e) {
-        
         e.preventDefault();
+        if (this.markers.length > 1) {
         this.props.createRoute(this.newParams()).
         then(data => this.props.history.push(`/routes/show/${data.route.id}`));
+        } else {
+            alert("At least two locations are required to save route.");
+        }
     }
 
     render() {
