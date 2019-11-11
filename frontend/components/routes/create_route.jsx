@@ -155,11 +155,14 @@ class CreateRoute extends React.Component {
         this.props.createRoute(this.newParams()).
         then(data => this.props.history.push(`/routes/show/${data.route.id}`));
         } else {
-            alert("At least two locations are required to save route.");
+            console.log("At least two locations are required to save route.");
         }
     }
 
     render() {
+        // debugger
+        // const { errors } = this.props.errors;
+
         return (
             <div className="map-page">
                 <label className="map-container">
@@ -186,6 +189,7 @@ class CreateRoute extends React.Component {
                         type="submit"
                     >SAVE ROUTE</button>
                 </form>
+                {this.errors}
             </div>
         );
     };
