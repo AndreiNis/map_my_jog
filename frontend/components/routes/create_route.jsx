@@ -159,10 +159,28 @@ class CreateRoute extends React.Component {
         }
     }
 
+    // renderErrors() {
+    //     const errorsArray = Object.values(this.props.routeErrors);
+    //     // console.log(errorsArray);
+    //     const errors = errorsArray.map((value, i) => {
+    //         return (
+    //             <li key={i}>
+    //                 {value}
+    //             </li>
+    //         )
+    //     })
+
+    //     return (
+    //         <ul>
+    //             {errors}
+    //         </ul>
+    //     )
+    // }
+
     render() {
         // debugger
-        // const { errors } = this.props.errors;
-
+        const {routeErrors} = this.state.props.routeErrors :;
+        console.log(this.props.errors)
         return (
             <div className="map-page">
                 <label className="map-container">
@@ -189,7 +207,7 @@ class CreateRoute extends React.Component {
                         type="submit"
                     >SAVE ROUTE</button>
                 </form>
-                {this.errors}
+                {routeErrors}
             </div>
         );
     };

@@ -10,8 +10,6 @@ export default (state = [], action) => {
             return action.errors;
         case RECEIVE_ROUTE:
             return [];
-        case CLEAR_ERRORS:
-            return [];
         default:
             return state;
     }
