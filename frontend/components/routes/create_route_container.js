@@ -9,7 +9,7 @@ const msp = (state) => {
     debugger
     return {
     user_id: state.session.id,
-    errors: state.routeErrors,
+    errors: state.errors.routeErrors,
     }
 };
 

@@ -178,9 +178,9 @@ class CreateRoute extends React.Component {
     // }
 
     render() {
-        // debugger
-        const {routeErrors} = this.state.props.routeErrors :;
-        console.log(this.props.errors)
+        debugger
+        const {routeErrors} = this.props.errors[0];
+        console.log(routeErrors);
         return (
             <div className="map-page">
                 <label className="map-container">
@@ -207,7 +207,7 @@ class CreateRoute extends React.Component {
                         type="submit"
                     >SAVE ROUTE</button>
                 </form>
-                {routeErrors}
+                <span>{routeErrors}</span>
             </div>
         );
     };
