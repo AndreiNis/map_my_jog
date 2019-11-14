@@ -156,6 +156,7 @@ class CreateRoute extends React.Component {
         then(data => this.props.history.push(`/routes/show/${data.route.id}`));
         } else {
             console.log("At least two locations are required to save route.");
+            alert("At least two locations are required to save route.");
         }
     }
 
@@ -210,8 +211,9 @@ class CreateRoute extends React.Component {
                         type="submit"
                     >SAVE ROUTE</button>
                 </form>
-                <span>{errors}</span>
-                {/* <span>{routeErrors}</span> */}
+                <span className="create-error">
+                    {errors}
+                </span>
             </div>
         );
     };
