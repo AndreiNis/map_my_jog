@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import merge from 'lodash/merge';
-import { withRouter } from 'react-router-dom';
+// import ReactDOM from 'react-dom';
+// import merge from 'lodash/merge';
+// import { withRouter } from 'react-router-dom';
 
 const mapOptions = {
     center: {
@@ -159,28 +159,31 @@ class CreateRoute extends React.Component {
         }
     }
 
-    // renderErrors() {
-    //     const errorsArray = Object.values(this.props.routeErrors);
-    //     // console.log(errorsArray);
-    //     const errors = errorsArray.map((value, i) => {
-    //         return (
-    //             <li key={i}>
-    //                 {value}
-    //             </li>
-    //         )
-    //     })
+    renderErrors() {
+        const errorsArray = Object.values(this.props.errors);
+        console.log(errorsArray);
+        const errors = errorsArray.map((value, i) => {
+            return (
+                <li key={i}>
+                    {value}
+                </li>
+            )
+        })
 
-    //     return (
-    //         <ul>
-    //             {errors}
-    //         </ul>
-    //     )
-    // }
+        return (
+            <ul>
+                {errors}
+            </ul>
+        )
+    }
 
     render() {
         debugger
-        const {routeErrors} = this.props.errors[0];
-        console.log(routeErrors);
+        // const {routeErrors} = Object.values(this.props.errors);
+        // console.log(routeErrors);
+        // const errorsArr = Object.values(this.props.errors);
+        const { errors } = this.props;
+        console.log(errors);
         return (
             <div className="map-page">
                 <label className="map-container">
@@ -207,7 +210,8 @@ class CreateRoute extends React.Component {
                         type="submit"
                     >SAVE ROUTE</button>
                 </form>
-                <span>{routeErrors}</span>
+                <span>{errors}</span>
+                {/* <span>{routeErrors}</span> */}
             </div>
         );
     };
