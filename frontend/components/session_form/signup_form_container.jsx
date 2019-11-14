@@ -6,7 +6,7 @@ import SessionForm from './session_form';
 
 const msp = ({ errors }) => {
     const obj = {}
-    errors.forEach(e => {
+    errors.errors.forEach(e => {
         let tmp = e.split(" ");
         obj[tmp[0]] = e;
     })

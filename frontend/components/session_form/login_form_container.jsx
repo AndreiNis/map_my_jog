@@ -5,8 +5,9 @@ import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const msp = ({ errors }) => {
+    debugger
     const obj = {}
-    errors.forEach(e => {
+    errors.errors.forEach(e => {
         let tmp = e.split("or");
         obj[tmp[0]] = e;
     })
