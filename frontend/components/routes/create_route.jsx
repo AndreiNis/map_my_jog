@@ -155,8 +155,7 @@ class CreateRoute extends React.Component {
         this.props.createRoute(this.newParams()).
         then(data => this.props.history.push(`/routes/show/${data.route.id}`));
         } else {
-            console.log("At least two locations are required to save route.");
-            alert("At least two locations are required to save route.");
+            this.props.receiveErrors("At least two locations are required to save route.")
         }
     }
 

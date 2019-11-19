@@ -16,6 +16,7 @@ const msp = (state) => {
 const mdp = (dispatch) => ({
     createRoute: (route) => dispatch(createRoute(route)),
     clearErrors: () => dispatch(clearErrors()),
+    receiveErrors: (error) => dispatch(receiveErrors(error)),
 });
 
 export default connect(msp, mdp)(CreateRoute);

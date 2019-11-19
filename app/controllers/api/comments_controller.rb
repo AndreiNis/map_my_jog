@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comments.new(comment_params)
-        @comment.user_id = current_user.id
+        
         if @comment.save
             render :show
         else
@@ -19,9 +19,14 @@ class CommentsController < ApplicationController
         end
     end
 
-    def edit
-        @comment = Comment.find(params[:id])
-        render json: `/api/routes/#{@comment.id}/edit`
+    def update
+        @comment = Comment.find(params:id)
+
+        if @comment.update(comment_params)
+            render :show
+        else
+            render json: @comment.errors.full_messages, status: 422
+        end
     end
 
     def destroy

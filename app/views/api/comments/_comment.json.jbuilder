@@ -1,0 +1,1 @@
+json.extract! route, :id, :body, :author_id, :route_id
