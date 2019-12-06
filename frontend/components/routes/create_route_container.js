@@ -6,7 +6,6 @@ import { receiveErrors } from '../../actions/route_actions';
 import CreateRoute from './create_route';
 
 const msp = (state) => {
-    debugger
     return {
     user_id: state.session.id,
     errors: state.errors.routeErrors,

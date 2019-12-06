@@ -70,7 +70,7 @@ class SessionForm extends React.Component {
         const dobClass = errors["Dob"] ? "date-input date-errors" : "date-input";
         
         const name = this.props.formType === "Sign up" ? (
-            <div>
+            <div className="full-name">
                 <label>
                     <span className="first-span">
                         {errors["First"]}
@@ -82,7 +82,7 @@ class SessionForm extends React.Component {
                         className={firstClass} />
                     </label>
                     <br/>
-                    <label>
+                    <label className="label-last">
                     <span className="last-span">
                         {errors["Last"]}
                     </span>
