@@ -28,7 +28,7 @@ export const updateComment = (comment) => {
     });
 };
 
-export const deleteRoute = (id) => {
+export const deleteComment = (id) => {
     return $.ajax ({
         method: 'delete',
         url: `api/comments/${id}`
