@@ -108,6 +108,7 @@ class RouteShow extends React.Component {
                <li >Route Name: {this.props.route.name}</li>
                 <li className="route-distance">Distance: {this.props.route.distance} mi</li>
             </ul>
+            <CreateComment/>
             <div id="show-map" ref='map'/>         
         </div>
         );

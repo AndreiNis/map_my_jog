@@ -7,6 +7,7 @@ import CreateComment from './create_comment';
 const msp = (state) => {
     return {
         user_id: state.session.id,
+        comments: Object.values(state.entities.comments),
         errors: state.errors,
     }
 };

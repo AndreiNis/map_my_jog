@@ -14,7 +14,7 @@ class CreateComment extends React.Component {
     };
     
     update(field) {
-        return (e => this.ListeningStateChangedEvent({
+        return (e => this.setState({
             [field]: e.target.value
         }));
     }
@@ -28,8 +28,8 @@ class CreateComment extends React.Component {
                 author_id: this.state.user,
                 route_id: this.state.route_id.id
             };
-
-        this.props.CreateComment(comment);
+        debugger
+        this.props.createComment(comment);
         this.setState({ body: "" });
         }
     }
@@ -38,12 +38,13 @@ class CreateComment extends React.Component {
         return (
             <div className="comment-form">
                 <form className="comment-form-details" onSubmit={this.handleSubmit}>
-                    <div className="comment-form-icon">&#128100;</div>
+                    <div className="comment-form-icon">
+                        <i className="fas fa-comment">Comment</i>
+                    </div>
                     <input className="comment-form-input" type="text" value={this.state.body} onChange={this.update('body')} placeholder="Write a comment..." />
                     <input className="comment-form-submit" type="submit" value="POST" />
                 </form>
-            </div>
-            
+            </div> 
         )
     }
 }
