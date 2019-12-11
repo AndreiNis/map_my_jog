@@ -10,25 +10,22 @@ const Background = () => {
                 <span className="bkg-text-1">MAKE EVERY MILE COUNT</span>
                 <span className="bkg-line-2">_____</span>
                 <p className="bkg-text-2">
-                    The best mobile run tracking experience,<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    backed by the world's largest digital<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;
-                    health and fitness community.
+                    The best mobile run tracking &nbsp;&nbsp;&nbsp;experience,
+                    backed by the &nbsp;world's largest digital 
+                    health <br /> &nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;and fitness community.
                 </p>
                 <div className="text2-container">
                     <span className="bkg-line-1-1">_____</span>
                     <span className="bkg-text-1-1">SYNC WITH UNDER<br/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARMOUR SMART SHOES</span>
                     <span className="bkg-line-2-1">_____</span>
-                </div>
                 <p className="bkg-text-2-2">
                     The best mobile run tracking experience,<br />
                     backed by the world's largest digital<br />
                     health and fitness community.
                 </p>
+                </div>
                 <img className="women-img" src="https://mapmy.uastatic.com/7ca8061f7a49ffa4c0a53685482b14aa.png" alt="women jogging"/>
                 <span className="stack-img">
                     <img className="sky-img" src="https://mapmy.uastatic.com/9b2217b59621acf4f24bfd26d9c2c3ca.png" alt="cloudy sky over city"/>            
