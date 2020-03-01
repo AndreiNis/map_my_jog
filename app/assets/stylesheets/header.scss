@@ -33,8 +33,8 @@
 
 .main-nav {
     background:white;
-    height: 50px;
-    // overflow-wrap: inherit;
+    height: 6vh;
+    
 }
 
 #logo {
@@ -72,23 +72,25 @@
 
 .stack-img {
     position: relative;
-    padding-top: 10vh;
-    bottom: 15vh;
-    display:block;
+    // padding-top: 10vh;
+    // bottom: 15vh;
+    display:flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .sneaker-add {
     width: 40%;
-    // justify-content: center;
+    height: 40%;
     position: absolute;
-    left: 57vw;
-    top: 18vh;
+    left: 60vw;
+    top: 57vw;
     // background: transparent;
     z-index: 0;
     // display:block;
 }
 .sky-img {
-    position:absolute;
+    position:relative;
     width: 100%;
     // top: 5vh;
 }
@@ -100,8 +102,11 @@
 }
 
 .logo-link {
+    width: 170px;
+    height: 170px;
     padding-top:13px;
     background: transparent;
+    z-index: 13;
 }
 
 .create-route-link {
@@ -193,8 +198,8 @@
 .bkg-text-2-2 {
     display: flex;
     position: absolute;
-    top: 90vw;
-    padding-left: 5vw;
+    top: 95vw;
+    padding-left: 2vw;
     background: transparent;
     color: black;
     font-size: 3vw;
@@ -204,7 +209,7 @@
 .bkg-text-1-1 {
     display: flex;
     position: absolute;
-    top: 75vw;
+    top: 79vw;
     padding-left: 2vw;
     background: transparent;
     color: black;
@@ -216,7 +221,7 @@
     display: flex;
     justify-content: flex-start;
     position: absolute;
-    top: 77vw;
+    top: 81vw;
     padding-left: 2vw;
     background: transparent;
     color: black;
@@ -228,7 +233,7 @@
     display: flex;
     justify-content: flex-start;
     position: absolute;
-    top: 64vw;
+    top: 68vw;
     padding-left: 2vw;
     background: transparent;
     color: black;
