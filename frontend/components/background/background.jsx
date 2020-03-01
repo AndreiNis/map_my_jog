@@ -18,7 +18,7 @@ const Background = () => {
                 <div className="text2-container">
                     <span className="bkg-line-1-1">_____</span>
                     <span className="bkg-text-1-1">SYNC WITH UNDER<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARMOUR SMART SHOES</span>
+                    ARMOUR SMART SHOES</span>
                     <span className="bkg-line-2-1">_____</span>
                 <p className="bkg-text-2-2">
                     The best mobile run tracking experience,<br />

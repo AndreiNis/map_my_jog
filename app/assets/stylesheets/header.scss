@@ -192,7 +192,6 @@
 
 .bkg-text-2-2 {
     display: flex;
-    justify-content: flex-end;
     position: absolute;
     top: 90vw;
     padding-left: 5vw;
@@ -204,9 +203,9 @@
 
 .bkg-text-1-1 {
     display: flex;
-    justify-content: flex-end;
     position: absolute;
-
+    top: 75vw;
+    padding-left: 2vw;
     background: transparent;
     color: black;
     font-size: 5vw;
@@ -217,7 +216,8 @@
     display: flex;
     justify-content: flex-start;
     position: absolute;
-
+    top: 77vw;
+    padding-left: 2vw;
     background: transparent;
     color: black;
     font-size: 10vw;
@@ -228,7 +228,8 @@
     display: flex;
     justify-content: flex-start;
     position: absolute;
-
+    top: 64vw;
+    padding-left: 2vw;
     background: transparent;
     color: black;
     font-size: 10vw;
