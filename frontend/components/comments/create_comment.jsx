@@ -6,11 +6,12 @@ class CreateComment extends React.Component {
 
         this.state = {
             body: "",
-            author_id: 0,
-            route_id: 0
+            author_id: this.props.user_id,
+            route_id: this.props.route_id
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this);
     };
     
     update(field) {
@@ -30,7 +31,6 @@ class CreateComment extends React.Component {
             };
         debugger
         this.props.createComment(comment);
-        this.setState({ body: "" });
         }
     }
 

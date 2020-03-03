@@ -5,10 +5,11 @@ import { receiveErrors } from '../../actions/comment_actions';
 import CreateComment from './create_comment';
 
 const msp = (state) => {
+    debugger
     return {
         user_id: state.session.id,
-        comments: Object.values(state.entities.comments),
-        errors: state.errors,
+        route_id: state.entities.routes.id,
+        errors: state.errors
     }
 };
 
